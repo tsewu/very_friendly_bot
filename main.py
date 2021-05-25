@@ -10,6 +10,7 @@ import json
 import os       #* use token
 import random
 import requests #* get data from API
+from keep_alive import keep_alive
 #from replit import db
 
 client = discord.Client()
@@ -66,5 +67,7 @@ async def on_message(msg):
 #*    OAuth2 bot token is placed here
 #*---------- ----------
 token = os.getenv("vfb_token")    
+
+keep_alive() #* run the web server
 
 client.run(token)
