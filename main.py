@@ -1,4 +1,9 @@
-#* very 1st Discord bot
+"""
+Author:      Roy Wu
+Description: very 1st Discord bot
+History:     05/25/2021 - intial version
+Referebce:   https://www.youtube.com/watch?v=SPTfmiYiuok
+"""
 
 import discord
 import json
@@ -22,6 +27,10 @@ encourage = [
   "Maybe talk to Dr. Wu?",
   "What doesn’t kill you makes you stronger."]
 
+
+#*---------- ----------
+#*    get quote from an API
+#*---------- ----------
 def getQuote():
   response = requests.get("https://zenquotes.io/api/random")
   json_data = json.loads(response.text)
@@ -53,7 +62,9 @@ async def on_message(msg):
     await msg.channel.send(random.choice(encourage))    
 
 
-
+#*---------- ----------
+#*    OAuth2 bot token is placed here
+#*---------- ----------
 token = os.getenv("vfb_token")    
 
 client.run(token)
